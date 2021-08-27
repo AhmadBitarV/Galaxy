@@ -1,0 +1,119 @@
+@import "../../variables";
+
+@mixin font-style($size, $weight, $height, $spacing, $transform) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $spacing;
+  text-transform: $transform;
+}
+
+.h1 {
+  @include font-style(4rem, var(--font-bold), 4.5rem, 2.2px, none);
+
+  @media only screen and (max-width: $bp-largest) {
+    @include font-style(3.5rem, var(--font-bold), 3.625rem, 2px, none);
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    @include font-style(2.5rem, var(--font-bold), 2.5rem, 1.5px, none);
+  }
+}
+
+.h2 {
+  @include font-style(3rem, var(--font-bold), 3rem, 1.75px, none);
+
+  @media only screen and (max-width: $bp-largest) {
+    @include font-style(2.5rem, var(--font-bold), 2.75rem, 1.5px, uppercase);
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    @include font-style(1.75rem, var(--font-bold), auto, 1px, uppercase);
+  }
+}
+
+.h3 {
+  @include font-style(1.2rem, var(--font-medium), 2.25rem, 1.15px, uppercase);
+
+  line-height: 1.7;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.h4 {
+  @include font-style(1.75rem, var(--font-bold), 2.375rem, 1.75px, uppercase);
+}
+
+.h5 {
+  @include font-style(1.5rem, var(--font-bold), 2.06rem, 1.7px, uppercase);
+}
+
+.h6 {
+  @include font-style(1.125rem, var(--font-bold), 1.5rem, 1.3px, uppercase);
+}
+
+.paragraph {
+  color: var(--color-border);
+
+  @include font-style(1.2rem, var(--font-extraLight), 2.2rem, 2.3px, none);
+
+  @media only screen and (max-width: $bp-largest) {
+    @include font-style(1rem, var(--font-extraLight), 1.75rem, 2px, 0);
+  }
+}
+
+.overline {
+  @include font-style(0.875rem, var(--font-medium), 1.1875rem, 1px, uppercase);
+}
+
+.subTitle {
+  @include font-style(1.2rem, var(--font-extraLight), 2rem, 8px, none);
+
+  @media only screen and (max-width: $bp-largest) {
+    @include font-style(0.9rem, var(--font-extraLight), 1.5625rem, 5px, none);
+  }
+}
+
+.orangeColor {
+  color: var(--color-primary-pink-font);
+}
+
+.whiteColor {
+  color: var(--color-white-700);
+}
+
+.special {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  // display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-blue),
+    var(--color-primary-blue-light)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  line-height: 100%;
+  letter-spacing: 0.2rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  text-align: center;
+  margin-bottom: 5rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (max-width: $bp-big) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 2rem;
+  }
+}

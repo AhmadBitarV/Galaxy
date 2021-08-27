@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Hero from "./sections/hero/hero";
+import About from "./sections/about/about";
+import Skills from "./sections/skills/skills";
+import Projects from "./sections/projects/projects";
+import ContactUs from "./sections/contact/contact";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <ContactUs />
     </div>
   );
-}
+};
 
 export default App;

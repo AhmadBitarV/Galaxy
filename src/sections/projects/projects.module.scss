@@ -1,0 +1,54 @@
+@import "../../variables";
+.heading {
+  order: -1;
+  margin: 0;
+  max-width: 80%;
+
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-blue),
+    var(--color-primary-blue-light)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  @include font-style(3.5rem, var(--font-medium), 4rem, 2px, uppercase);
+
+  @media only screen and (max-width: $bp-largest) {
+    @include font-style(3rem, var(--font-medium), 3.625rem, 2px, none);
+  }
+
+  @media only screen and (max-width: $bp-big) {
+    padding-right: 0;
+    @include font-style(2rem, var(--font-medium), 2.5rem, 1.5px, none);
+  }
+}
+
+.cards {
+  gap: 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  grid-template-rows: 1fr;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-button {
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    background-image: url("https://png.pngtree.com/png-clipart/20190515/original/pngtree-arrow-icon-in-flat-style-png-image_3548830.jpg");
+    background-size: 40px;
+    border-radius: 50%;
+  }
+  & > * {
+    grid-row: 1 / -1;
+    background-color: orangered;
+  }
+}

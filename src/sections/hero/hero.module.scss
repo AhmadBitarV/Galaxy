@@ -1,0 +1,144 @@
+@import "../../variables";
+
+.hero {
+  min-height: 100vh;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-size: 5rem;
+  // animation: shrink 2s;
+  // animation-fill-mode: forwards;
+  // animation-delay: 10s;
+
+  &__content {
+    max-width: 40rem;
+    margin: auto var(--horizontal-spacer);
+    color: white;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    /////  Media queries of the content container /////
+    @media only screen and (max-width: $bp-largest) {
+      max-width: 30rem;
+      gap: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      text-align: center;
+      margin: 0;
+      margin: auto;
+      padding: 0 3rem;
+      align-items: center;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 0 0.2rem;
+    }
+
+    ///// Font Styles: @mixin font-style (size, weight, line-height, letter-spacing, text-transform)
+
+    h1 {
+      @include font-style(4rem, var(--font-bold), 4.5rem, 2.2px, none);
+
+      @media only screen and (max-width: $bp-largest) {
+        @include font-style(3.5rem, var(--font-bold), 3.625rem, 2px, none);
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        @include font-style(2.5rem, var(--font-bold), 2.5rem, 1.5px, none);
+      }
+    }
+
+    h3 {
+      color: var(--color-primary-pink-font);
+      @include font-style(1.2rem, var(--font-extraLight), 2rem, 8px, none);
+
+      @media only screen and (max-width: $bp-largest) {
+        @include font-style(
+          0.9rem,
+          var(--font-extraLight),
+          1.5625rem,
+          5px,
+          none
+        );
+      }
+    }
+
+    p {
+      color: var(--color-border);
+      @include font-style(1.2rem, var(--font-extraLight), 2.2rem, 2.3px, none);
+
+      @media only screen and (max-width: $bp-largest) {
+        @include font-style(1rem, var(--font-extraLight), 1.75rem, 2px, 0);
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        @include font-style(1rem, var(--font-extraLight), 1.75rem, 2px, 0);
+      }
+    }
+  }
+}
+
+.BGvideo {
+  position: absolute;
+  display: flex;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  min-width: 100vw;
+  z-index: -2;
+  overflow: hidden;
+  filter: brightness(40%);
+
+  &__content {
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+// @keyframes shrink {
+//   0% {
+//     min-height: 100vh;
+//   }
+
+//   100% {
+//     min-height: 80vh;
+//   }
+// }
+
+.animation {
+  opacity: 0;
+  animation: moveUp 2s;
+  animation-fill-mode: forwards;
+
+  @for $i from 1 to 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i + 3.5s;
+    }
+  }
+}

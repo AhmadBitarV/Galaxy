@@ -1,0 +1,16 @@
+.App {
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns:
+    [outline-start] var(--horizontal-spacer) repeat(
+      8,
+      [col-start] 1fr [col-end]
+    )
+    var(--horizontal-spacer) [outline-end];
+
+  grid-template-rows: min-content repeat(3, min-content);
+  z-index: 5;
+  position: relative;
+}

@@ -1,0 +1,252 @@
+@import "../../../variables";
+
+.card {
+  perspective: 1500px;
+  -moz-perspective: 1500px;
+  position: relative;
+  height: 520px;
+  min-width: 20rem;
+
+  grid-row: 1 / -1;
+
+  &__side {
+    height: 520px;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5px 40px rgba($color-black, 0.15);
+
+    &__front {
+      background-color: $color-white;
+    }
+
+    &__back {
+      transform: rotateY(180deg);
+
+      &_1 {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(#373b44, 0.01),
+          rgba(#2a5298, 1)
+        );
+      }
+
+      &_2 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(#373b44, 0.9),
+          rgba(#2a5298, 0.9)
+        );
+      }
+
+      &_3 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(#373b44, 0.9),
+          rgba(#2a5298, 0.9)
+        );
+      }
+    }
+  }
+
+  &:hover &__side__front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side__back {
+    transform: rotateY(0);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    object-fit: cover;
+    filter: brightness(50%);
+    width: 100%;
+    height: 230px;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    &__1 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(#373b44, 0.5),
+          rgba(#2a5298, 0.5)
+        ),
+        url(../../../assets/projects/eshop.jpg);
+    }
+
+    &__2 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(#373b44, 0.5),
+          rgba(#2a5298, 0.5)
+        ),
+        url(../../../assets/projects/natours.jpeg);
+    }
+
+    &__3 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(#d75783, 0.5),
+          rgba(#cb3066, 0.5)
+        ),
+        url(../../../assets/projects/tesonet.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 130px;
+    right: 20px;
+    width: 75%;
+  }
+
+  &__heading_span {
+    padding: 10px 15px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &__1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(#373b44, 0.9),
+        rgba(#2a5298, 0.9)
+      );
+    }
+
+    &__2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(#373b44, 0.9),
+        rgba(#2a5298, 0.9)
+      );
+    }
+
+    &__3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(#373b44, 0.9),
+        rgba(#2a5298, 0.9)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3px;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        color: var(--font-extraLight);
+        line-height: 1.5625rem;
+        letter-spacing: 2px;
+        font-size: 0.9375rem;
+        padding: 10px;
+        font-weight: 400;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  // FRONT SIDE STYLING
+  &__cta {
+    transform: translateZ(10rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price_box {
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 80px;
+  }
+
+  &__price_only {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  &__price_value {
+    font-size: 60px;
+    font-weight: 100;
+  }
+
+  //@include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 15px 40px rgba($color-black, 0.15);
+
+    &__side {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+
+      &__back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+
+    &:hover &__side__front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 10px 30px;
+    }
+
+    // FRONT SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0%;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 70px 40px 40px 40px;
+    }
+
+    &__price_box {
+      margin-bottom: 30px;
+    }
+
+    &__price_value {
+      font-size: 4px;
+    }
+  }
+}
+
+.yellow {
+  color: var(--color-primary-pink);
+}
+
+.green {
+  color: #2a5298;
+}
